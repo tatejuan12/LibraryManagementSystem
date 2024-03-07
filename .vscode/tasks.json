@@ -1,0 +1,25 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+			"label": "java (compile): Compile Current File",
+			"type": "shell",
+			"command": "javac",
+			"args": [
+				"${file}"
+			],
+			"group": {
+				"kind": "build",
+				"isDefault": true
+			},
+			"problemMatcher": "$javac" 
+		},
+		
+        {
+            "type": "shell",  
+            "command": "mvn javafx:run -f '${workspaceFolder}/pom.xml'", 
+            "label": "java (run): Run with Maven",
+            "group": "build" 
+        }
+    ]
+}
