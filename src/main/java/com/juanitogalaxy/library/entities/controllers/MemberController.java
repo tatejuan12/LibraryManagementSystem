@@ -3,12 +3,13 @@ package com.juanitogalaxy.library.entities.controllers;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import com.juanitogalaxy.Controller;
+
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.Initializable;
 import javafx.scene.control.TextField;
 
-public class MemberController {
+public class MemberController extends Controller {
     @FXML
     private TextField memberName;
     @FXML

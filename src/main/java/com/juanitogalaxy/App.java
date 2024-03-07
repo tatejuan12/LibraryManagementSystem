@@ -8,6 +8,7 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
+import com.juanitogalaxy.library.LibraryController;
 import com.juanitogalaxy.utils.Helper;
 
 public class App extends Application {
@@ -16,7 +17,7 @@ public class App extends Application {
 
     @Override
     public void start(Stage stage) throws IOException {
-        scene = new Scene(Helper.loadFXML("main"), 840, 680);
+        scene = new Scene(Helper.loadFXML("main", new LibraryController()), 840, 680);
         stage.setScene(scene);
         stage.show();
     }
