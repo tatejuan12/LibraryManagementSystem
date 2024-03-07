@@ -15,12 +15,11 @@ public class Library {
     }
 
     public HashMap<String, Member> getMembers() {
-        System.out.println("wow nc");
         return this.members;
     }
 
-    public void addMember() {
-        this.members.put("1", new Member(02, 0424, "Juan Tate"));
+    public void addMember(int id, int phoneNumber, String name) {
+        this.members.put(Integer.toString(id), new Member(id, phoneNumber, name));
         System.out.println(members);
 
     }

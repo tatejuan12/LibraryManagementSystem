@@ -12,25 +12,20 @@ import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
 public class LibraryController {
-    @FXML
-    public TextField memberName;
 
     @FXML
     public void changeScene(ActionEvent event, String fxmlName) throws IOException {
         Parent fxml = Helper.loadFXML(fxmlName);
+        // ! We would need to pass controller over here like (MemberController(library))
+        // so i can pass library
         Button btn = (Button) event.getSource();
         Stage stage = (Stage) btn.getScene().getWindow();
         stage.getScene().setRoot(fxml);
     }
 
     @FXML
-    public void handleAddMember(ActionEvent event) throws IOException {
+    private void handleAddMember(ActionEvent event) throws IOException {
         changeScene(event, "addMember");
     }
 
 }
-// Parent newRoot = FXMLLoader.load(getClass().getResource("lessons.fxml"));
-// primaryStage.getScene().setRoot(newRoot);
-
-// Also note you can get the stage from any node, e.g. in the controller you can
-// do Stage primaryStage = (Stage) loginBtn.getScene().getWindow();
