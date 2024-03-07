@@ -34,9 +34,4 @@ public class MemberController {
         // library.addMember();
     }
 
-    private boolean addMember() {
-
-        return false;
-    }
-
 }

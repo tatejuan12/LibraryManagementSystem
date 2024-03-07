@@ -14,6 +14,11 @@ import javafx.stage.Stage;
 public class LibraryController {
 
     @FXML
+    // ! I need to pass a Controller class to the changeScene method, but it needs
+    // to be dynamic so it can accommodate different controllers.
+    // ! I am thinking I need to make a main Controller class and extend other
+    // conrollers, and pass main into the method.
+
     public void changeScene(ActionEvent event, String fxmlName) throws IOException {
         Parent fxml = Helper.loadFXML(fxmlName);
         // ! We would need to pass controller over here like (MemberController(library))
