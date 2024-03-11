@@ -7,7 +7,9 @@ import com.juanitogalaxy.utils.Helper;
 import javafx.event.ActionEvent;
 import javafx.scene.Parent;
 import javafx.scene.control.Button;
+import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
+import javafx.fxml.FXML;
 
 public class Controller {
 
@@ -18,5 +20,10 @@ public class Controller {
         Button btn = (Button) event.getSource();
         Stage stage = (Stage) btn.getScene().getWindow();
         stage.getScene().setRoot(fxml);
+    }
+
+    @FXML
+    private void test(MouseEvent event) {
+        System.out.println("wow works");
     }
 }
