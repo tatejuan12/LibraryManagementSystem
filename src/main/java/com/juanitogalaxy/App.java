@@ -8,6 +8,7 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
+import com.juanitogalaxy.library.Library;
 import com.juanitogalaxy.library.LibraryController;
 import com.juanitogalaxy.utils.Helper;
 
@@ -17,7 +18,9 @@ public class App extends Application {
 
     @Override
     public void start(Stage stage) throws IOException {
-        scene = new Scene(Helper.loadFXML("main", new LibraryController()), 840, 680);
+        Library library = Library.getInstance();
+        LibraryController libraryController = new LibraryController(library);
+        scene = new Scene(Helper.loadFXML("main", libraryController), 840, 680);
         stage.setScene(scene);
         stage.show();
     }

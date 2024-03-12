@@ -2,6 +2,9 @@ package com.juanitogalaxy;
 
 import java.io.IOException;
 
+import com.juanitogalaxy.library.Library;
+import com.juanitogalaxy.library.LibraryController;
+import com.juanitogalaxy.library.entities.controllers.MemberController;
 import com.juanitogalaxy.utils.Helper;
 
 import javafx.event.ActionEvent;
@@ -11,19 +14,33 @@ import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import javafx.fxml.FXML;
 
-public class Controller {
+public abstract class Controller {
+    protected Library library;
+    private LibraryController libraryController;
+    private MemberController memberController;
 
-    public void changeScene(ActionEvent event, String fxmlName, Controller controller) throws IOException {
+    public Controller(Library library) {
+        this.library = library;
+
+    }
+
+    protected LibraryController getLibraryController() {
+        if (libraryController == null)
+            return new LibraryController(library);
+        return this.libraryController;
+    }
+
+    protected MemberController getMemberController() {
+        if (memberController == null)
+            return new MemberController(library);
+        return this.memberController;
+    }
+
+    protected <T extends Controller> void changeScene(ActionEvent event, String fxmlName, T controller)
+            throws IOException {
         Parent fxml = Helper.loadFXML(fxmlName, controller);
-        // ! We would need to pass controller over here like (MemberController(library))
-        // so i can pass library
         Button btn = (Button) event.getSource();
         Stage stage = (Stage) btn.getScene().getWindow();
         stage.getScene().setRoot(fxml);
-    }
-
-    @FXML
-    private void test(MouseEvent event) {
-        System.out.println("wow works");
     }
 }
